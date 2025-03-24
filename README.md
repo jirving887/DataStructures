@@ -1,5 +1,5 @@
 # Data Structures
-- Common data structures implemented in Swift.
+Common data structures implemented in Swift.
 
 ## Contains:
 
