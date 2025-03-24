@@ -19,7 +19,8 @@ class SinglyLinkedList<T>: LinkedList {
         if let head {
             insert(element, at: index, to: head)
         } else {
-            append(element)
+            head = SinglyLinkedNode(value: element)
+            insert(element, at: index)
         }
     }
     
@@ -94,7 +95,8 @@ class SinglyLinkedList<T>: LinkedList {
         } else if let next = node.next {
             insert(element, at: index - 1, to: next)
         } else {
-            node.next = SinglyLinkedNode<T>(value: element)
+            node.next = SinglyLinkedNode<T>(value: nil)
+            insert(element, at: index, to: node)
         }
     }
 }

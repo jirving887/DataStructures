@@ -76,13 +76,13 @@ struct LinkedListTests {
     }
     
     @Test
-    func insert_withIndexGreaterThanSize_shouldAddToEndOfList() {
+    func insert_withIndexGreaterThanSize_shouldFillGapWithNilNodes() {
         let sut = SinglyLinkedList<Int>()
         
         sut.insert(4, at: 4)
         
-        #expect(sut.size() == 1)
-        #expect(sut.get(0) == 4)
+        #expect(sut.size() == 5)
+        #expect(sut.get(4) == 4)
     }
     
     @Test
