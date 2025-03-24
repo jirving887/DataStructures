@@ -8,10 +8,10 @@
 import Foundation
 
 class SinglyLinkedNode<T> {
-    var value: T
+    var value: T?
     var next: SinglyLinkedNode<T>?
     
-    init(value: T) {
+    init(value: T?) {
         self.value = value
     }
 }

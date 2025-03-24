@@ -15,7 +15,7 @@ class SinglyLinkedList<T>: LinkedList {
         self.head = head
     }
     
-    func insert(_ element: T, at index: Int) {
+    func insert(_ element: T?, at index: Int) {
         if let head {
             insert(element, at: index, to: head)
         } else {
@@ -23,7 +23,7 @@ class SinglyLinkedList<T>: LinkedList {
         }
     }
     
-    func append(_ element: T) {
+    func append(_ element: T?) {
         if let head {
             append(element, to: head)
         } else {
@@ -74,7 +74,7 @@ class SinglyLinkedList<T>: LinkedList {
         }
     }
     
-    private func append(_ element: T, to node: SinglyLinkedNode<T>) {
+    private func append(_ element: T?, to node: SinglyLinkedNode<T>) {
         if let next = node.next {
             append(element, to: next)
         } else {
@@ -82,7 +82,7 @@ class SinglyLinkedList<T>: LinkedList {
         }
     }
     
-    private func insert(_ element: T, at index: Int, to node: SinglyLinkedNode<T>) {
+    private func insert(_ element: T?, at index: Int, to node: SinglyLinkedNode<T>) {
         if index < 1 {
             let newNode = SinglyLinkedNode<T>(value: element)
             newNode.next = node
