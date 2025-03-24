@@ -105,6 +105,23 @@ struct LinkedListTests {
         #expect(sut.get(2) == 5)
     }
     
+    @Test
+    func remove_withIndexGreaterThanSize_shouldReturnNil() {
+        let sut = SinglyLinkedList<Int>()
+        
+        #expect(sut.remove(1) == nil)
+    }
+    
+    @Test
+    func remove_withNonEmptyList_shouldReturnRemovedValue() {
+        let sut = makeListWithValues()
+        
+        let removed = sut.remove(2)
+        
+        #expect(removed == 2)
+        #expect(sut.size() == 3)
+    }
+    
     // MARK: Helper functions
     
     private func makeListWithValues() -> SinglyLinkedList<Int> {
