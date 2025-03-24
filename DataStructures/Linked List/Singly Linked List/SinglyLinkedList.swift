@@ -16,9 +16,12 @@ class SinglyLinkedList<T>: LinkedList {
     }
     
     func insert(_ element: T, at index: Int) {
-        guard head != nil else {
+        if let head {
+            let newNode = SinglyLinkedNode(value: element)
+            newNode.next = head
+            self.head = newNode
+        } else {
             append(element)
-            return
         }
     }
     

@@ -76,13 +76,23 @@ struct LinkedListTests {
     }
     
     @Test
-    func insert_withEmptyList_shouldAddToList() {
+    func insert_withIndexGreaterThanSize_shouldAddToEndOfList() {
         let sut = SinglyLinkedList<Int>()
         
         sut.insert(4, at: 4)
         
         #expect(sut.size() == 1)
         #expect(sut.get(0) == 4)
+    }
+    
+    @Test
+    func insert_withIndexLessThanOne_shouldAddToBeginningOfList() {
+        let sut = makeListWithValues()
+        
+        sut.insert(-1, at: -1)
+        
+        #expect(sut.size() == 5)
+        #expect(sut.get(0) == -1)
     }
     
     // MARK: Helper functions
