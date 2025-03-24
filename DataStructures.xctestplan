@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "39D5CBE4-753C-4026-A5A7-0CF0D065523E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:DataStructures.xcodeproj",
+        "identifier" : "ABB843412D8DB62800CCDC3F",
+        "name" : "DataStructuresTests"
+      }
+    }
+  ],
+  "version" : 1
+}
