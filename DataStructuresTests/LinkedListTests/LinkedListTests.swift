@@ -95,6 +95,16 @@ struct LinkedListTests {
         #expect(sut.get(0) == -1)
     }
     
+    @Test
+    func insert_withIndexInRange_shouldAddAtCorrectIndex() {
+        let sut = makeListWithValues()
+        
+        sut.insert(5, at: 2)
+        
+        #expect(sut.size() == 5)
+        #expect(sut.get(2) == 5)
+    }
+    
     // MARK: Helper functions
     
     private func makeListWithValues() -> SinglyLinkedList<Int> {
