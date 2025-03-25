@@ -2,6 +2,6 @@
 Common data structures implemented in Swift.
 
 ## Contains:
-
-### Coming soon:
 - Singly Linked List
+### Coming soon:
+- Graph
