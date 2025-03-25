@@ -45,7 +45,16 @@ class SinglyLinkedList<T>: LinkedList {
     }
     
     func removeLast() -> T? {
-        nil
+        guard let head else {
+            return nil
+        }
+        if head.next == nil {
+            let removed = head.value
+            self.head = nil
+            return removed
+        }
+        return remove(head)
+        
     }
     
     func clear() {
@@ -116,5 +125,15 @@ class SinglyLinkedList<T>: LinkedList {
             return removed
         }
         return remove(at: index - 1, next)
+    }
+    
+    private func remove(_ node: SinglyLinkedNode<T>) -> T? {
+        guard let nextNode = node.next else { return nil }
+        if let next = nextNode.next {
+            return remove(next)
+        }
+        let removed = nextNode.value
+        node.next = nil
+        return removed
     }
 }

@@ -122,6 +122,23 @@ struct LinkedListTests {
         #expect(sut.size() == 3)
     }
     
+    @Test
+    func removeLast_withEmptyList_shouldReturnNil() {
+        let sut = SinglyLinkedList<Int>()
+        
+        #expect(sut.removeLast() == nil)
+    }
+    
+    @Test
+    func removeLast_withNonEmptyList_shouldRemoveLastValue() {
+        let sut = makeListWithValues()
+        
+        let removed = sut.removeLast()
+        
+        #expect(removed == 3)
+        #expect(sut.size() == 3)
+    }
+    
     // MARK: Helper functions
     
     private func makeListWithValues() -> SinglyLinkedList<Int> {
