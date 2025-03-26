@@ -19,7 +19,7 @@ struct LinkedListTests {
     
     @Test
     func size_withOneNode_shouldReturn1() {
-        let sut = SinglyLinkedList<Int>(SinglyLinkedNode(value: 1))
+        let sut = SinglyLinkedList<Int>(1)
         
         #expect(sut.size() == 1)
     }
@@ -33,8 +33,7 @@ struct LinkedListTests {
     
     @Test
     func clear_shouldClearList() {
-        let node1 = SinglyLinkedNode(value: 1)
-        let sut = SinglyLinkedList<Int>(node1)
+        let sut = SinglyLinkedList<Int>(1)
         
         sut.clear()
         
@@ -142,14 +141,10 @@ struct LinkedListTests {
     // MARK: Helper functions
     
     private func makeListWithValues() -> SinglyLinkedList<Int> {
-        let node1 = SinglyLinkedNode(value: 0)
-        let node2 = SinglyLinkedNode(value: 1)
-        let node3 = SinglyLinkedNode(value: 2)
-        let node4 = SinglyLinkedNode(value: 3)
-        node3.next = node4
-        node2.next = node3
-        node1.next = node2
-        
-        return SinglyLinkedList<Int>(node1)
+        let list = SinglyLinkedList<Int>()
+        for i in 0...3 {
+            list.append(i)
+        }
+        return list
     }
 }

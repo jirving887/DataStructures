@@ -11,8 +11,10 @@ class SinglyLinkedList<T>: LinkedList {
     
     private var head: SinglyLinkedNode<T>?
     
-    init(_ head: SinglyLinkedNode<T>? = nil) {
-        self.head = head
+    init(_ head: T? = nil) {
+        if let head {
+            self.head = SinglyLinkedNode<T>(value: head)
+        }
     }
     
     func insert(_ element: T?, at index: Int) {
