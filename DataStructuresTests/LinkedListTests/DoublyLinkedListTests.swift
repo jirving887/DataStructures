@@ -65,6 +65,20 @@ struct DoublyLinkedListTests {
         #expect(sut.size() == 5)
         #expect(sut.get(4) == 4)
     }
+    
+    @Test
+    func nodeAt_withEmptyList_shouldReturnNil() {
+        let sut = DoublyLinkedList<Int>()
+        
+        #expect(sut.elementAt(0) == nil)
+    }
+    
+    @Test
+    func nodeAt_withNonEmptyList_shouldReturnCorrectValue() {
+        let sut = makeListWithValues()
+        
+        #expect(sut.elementAt(2)?.value == 2)
+    }
 
     // MARK: Helper functions
     

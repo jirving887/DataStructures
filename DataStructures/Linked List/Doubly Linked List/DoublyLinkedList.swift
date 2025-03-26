@@ -55,6 +55,13 @@ public class DoublyLinkedList<T>: LinkedList {
         return 0
     }
     
+    func nodeAt(_ index: Int) -> DoublyLinkedNode<T>? {
+        if let head {
+            return nodeAt(index: index, head)
+        }
+        return nil
+    }
+    
     private func size(_ node: DoublyLinkedNode<T>) -> Int {
         if let next = node.next {
             return 1 + size(next)
@@ -70,6 +77,15 @@ public class DoublyLinkedList<T>: LinkedList {
         } else {
             return nil
         }
+    }
+    
+    private func nodeAt(index: Int, _ node: DoublyLinkedNode<T>) -> DoublyLinkedNode<T>? {
+        if index == 0 {
+            return node
+        } else if let next = node.next {
+            return nodeAt(index: index - 1, next)
+        }
+        return nil
     }
     
     private func append(_ element: T?, to node: DoublyLinkedNode<T>) {
