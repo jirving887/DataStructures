@@ -1,5 +1,5 @@
 //
-//  LinkedListTests.swift
+//  SinglyLinkedListTests.swift
 //  DataStructuresTests
 //
 //  Created by Jonathan Irving on 3/21/25.
@@ -8,7 +8,7 @@
 import Testing
 @testable import DataStructures
 
-struct LinkedListTests {
+struct SinglyLinkedListTests {
 
     @Test
     func size_withEmpty_shouldReturn0() {
