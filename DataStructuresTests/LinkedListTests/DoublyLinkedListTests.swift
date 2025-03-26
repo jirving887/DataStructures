@@ -22,5 +22,14 @@ struct DoublyLinkedListTests {
         
         #expect(sut.size() == 1)
     }
+    
+    @Test
+    func clear_shouldClearList() {
+        let sut = DoublyLinkedList<Int>(1)
+        
+        sut.clear()
+        
+        #expect(sut.size() == 0)
+    }
 
 }

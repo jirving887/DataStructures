@@ -34,7 +34,7 @@ public class DoublyLinkedList<T>: LinkedList {
     }
     
     public func clear() {
-        
+        head = nil
     }
     
     public func get(_ index: Int) -> T? {
