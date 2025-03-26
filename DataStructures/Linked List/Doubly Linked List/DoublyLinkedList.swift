@@ -22,7 +22,11 @@ public class DoublyLinkedList<T>: LinkedList {
     }
     
     public func append(_ element: T?) {
-        
+        if let head {
+            append(element, to: head)
+        } else {
+            head = DoublyLinkedNode(value: element)
+        }
     }
     
     public func remove(_ index: Int) -> T? {
@@ -65,6 +69,16 @@ public class DoublyLinkedList<T>: LinkedList {
             return get(at: index - 1, next)
         } else {
             return nil
+        }
+    }
+    
+    private func append(_ element: T?, to node: DoublyLinkedNode<T>) {
+        if let next = node.next {
+            append(element, to: next)
+        } else {
+            let nextNode = DoublyLinkedNode<T>(value: element)
+            nextNode.previous = node
+            node.next = nextNode
         }
     }
 }
