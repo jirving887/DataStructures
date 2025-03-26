@@ -31,5 +31,19 @@ struct DoublyLinkedListTests {
         
         #expect(sut.size() == 0)
     }
+    
+    @Test
+    func get_withInvalidIndex_shouldReturnNil() {
+        let sut = DoublyLinkedList<Int>()
+        
+        #expect(sut.get(4) == nil)
+    }
+    
+    @Test
+    func get_withValidIndex_shouldReturnCorrectValue() {
+        let sut = DoublyLinkedList<Int>(1)
+        
+        #expect(sut.get(0) == 1)
+    }
 
 }

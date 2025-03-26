@@ -38,7 +38,10 @@ public class DoublyLinkedList<T>: LinkedList {
     }
     
     public func get(_ index: Int) -> T? {
-        nil
+        if let head {
+            return get(at: index, head)
+        }
+        return nil
     }
     
     public func size() -> Int {
@@ -53,5 +56,15 @@ public class DoublyLinkedList<T>: LinkedList {
             return 1 + size(next)
         }
         return 1
+    }
+    
+    private func get(at index: Int, _ node: DoublyLinkedNode<T>) -> T? {
+        if index == 0 {
+            return node.value
+        } else if let next = node.next {
+            return get(at: index - 1, next)
+        } else {
+            return nil
+        }
     }
 }
