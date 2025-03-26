@@ -41,7 +41,17 @@ public class DoublyLinkedList<T>: LinkedList {
         nil
     }
     
-        0
     public func size() -> Int {
+        if let head {
+            return size(head)
+        }
+        return 0
+    }
+    
+    private func size(_ node: DoublyLinkedNode<T>) -> Int {
+        if let next = node.next {
+            return 1 + size(next)
+        }
+        return 1
     }
 }

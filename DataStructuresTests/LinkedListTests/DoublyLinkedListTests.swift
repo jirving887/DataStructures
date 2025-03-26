@@ -15,5 +15,12 @@ struct DoublyLinkedListTests {
         
         #expect(sut.size() == 0)
     }
+    
+    @Test
+    func size_withOneNode_shouldReturn1() {
+        let sut = DoublyLinkedList<Int>(1)
+        
+        #expect(sut.size() == 1)
+    }
 
 }
