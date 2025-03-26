@@ -17,15 +17,15 @@ struct DoublyLinkedListTests {
     }
     
     @Test
-    func size_withOneNode_shouldReturn1() {
-        let sut = DoublyLinkedList<Int>(0)
+    func size_withManyNodes_shouldReturn1() {
+        let sut = makeListWithValues()
         
-        #expect(sut.size() == 1)
+        #expect(sut.size() == 4)
     }
     
     @Test
     func clear_shouldClearList() {
-        let sut = DoublyLinkedList<Int>(0)
+        let sut = makeListWithValues()
         
         sut.clear()
         
@@ -41,9 +41,9 @@ struct DoublyLinkedListTests {
     
     @Test
     func get_withValidIndex_shouldReturnCorrectValue() {
-        let sut = DoublyLinkedList<Int>(0)
+        let sut = makeListWithValues()
         
-        #expect(sut.get(0) == 0)
+        #expect(sut.get(2) == 2)
     }
     
     @Test
@@ -58,12 +58,21 @@ struct DoublyLinkedListTests {
     
     @Test
     func append_withNonEmptyList_shouldAddToEnd() {
-        let sut = DoublyLinkedList<Int>(0)
+        let sut = makeListWithValues()
         
-        sut.append(1)
+        sut.append(4)
         
-        #expect(sut.size() == 2)
-        #expect(sut.get(1) == 1)
+        #expect(sut.size() == 5)
+        #expect(sut.get(4) == 4)
     }
 
+    // MARK: Helper functions
+    
+    private func makeListWithValues() -> DoublyLinkedList<Int> {
+        let list = DoublyLinkedList<Int>()
+        for i in 0...3 {
+            list.append(i)
+        }
+        return list
+    }
 }
