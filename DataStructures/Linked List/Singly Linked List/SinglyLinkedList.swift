@@ -7,17 +7,17 @@
 
 import Foundation
 
-class SinglyLinkedList<T>: LinkedList {
+public class SinglyLinkedList<T>: LinkedList {
     
     private var head: SinglyLinkedNode<T>?
     
-    init(_ head: T? = nil) {
+    public init(_ head: T? = nil) {
         if let head {
             self.head = SinglyLinkedNode<T>(value: head)
         }
     }
     
-    func insert(_ element: T?, at index: Int) {
+    public func insert(_ element: T?, at index: Int) {
         if let head {
             insert(element, at: index, to: head)
         } else {
@@ -26,7 +26,7 @@ class SinglyLinkedList<T>: LinkedList {
         }
     }
     
-    func append(_ element: T?) {
+    public func append(_ element: T?) {
         if let head {
             append(element, to: head)
         } else {
@@ -34,7 +34,7 @@ class SinglyLinkedList<T>: LinkedList {
         }
     }
     
-    func remove(_ index: Int) -> T? {
+    public func remove(_ index: Int) -> T? {
         guard let head else {
             return nil
         }
@@ -46,7 +46,7 @@ class SinglyLinkedList<T>: LinkedList {
         return remove(at: index, head)
     }
     
-    func removeLast() -> T? {
+    public func removeLast() -> T? {
         guard let head else {
             return nil
         }
@@ -56,21 +56,20 @@ class SinglyLinkedList<T>: LinkedList {
             return removed
         }
         return remove(head)
-        
     }
     
-    func clear() {
+    public func clear() {
         head = nil
     }
     
-    func get(_ index: Int) -> T? {
+    public func get(_ index: Int) -> T? {
         if let head {
             return get(at: index, head)
         }
         return nil
     }
     
-    func size() -> Int {
+    public func size() -> Int {
         if let head {
             return 1 + size(head)
         }
