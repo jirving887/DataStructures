@@ -18,7 +18,14 @@ public class DoublyLinkedList<T>: LinkedList {
     }
     
     public func insert(_ element: T?, at index: Int) {
-        
+        if let head {
+            insert(element, at: index, to: head)
+        } else if index < 1 {
+            head = DoublyLinkedNode(value: element)
+        } else {
+            head = DoublyLinkedNode(value: nil)
+            insert(element, at: index)
+        }
     }
     
     public func append(_ element: T?) {
@@ -105,6 +112,28 @@ public class DoublyLinkedList<T>: LinkedList {
             let nextNode = DoublyLinkedNode<T>(value: element)
             nextNode.previous = node
             node.next = nextNode
+        }
+    }
+    
+    private func insert(_ element: T?, at index: Int, to node: DoublyLinkedNode<T>) {
+        if index < 1 {
+            let newNode = DoublyLinkedNode<T>(value: element)
+            node.previous = newNode
+            newNode.next = node
+            head = newNode
+        } else if index == 1 {
+            let newNode = DoublyLinkedNode<T>(value: element)
+            newNode.previous = node
+            newNode.next = node.next
+            node.next = newNode
+            newNode.next?.previous = newNode
+        } else if let next = node.next {
+            insert(element, at: index - 1, to: next)
+        } else {
+            let newNode = DoublyLinkedNode<T>(value: nil)
+            newNode.previous = node
+            node.next = newNode
+            insert(element, at: index, to: node)
         }
     }
     
