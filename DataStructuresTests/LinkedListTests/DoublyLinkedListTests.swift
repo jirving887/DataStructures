@@ -17,7 +17,7 @@ struct DoublyLinkedListTests {
     }
     
     @Test
-    func size_withManyNodes_shouldReturn1() {
+    func size_withManyNodes_shouldReturnSize() {
         let sut = makeListWithValues()
         
         #expect(sut.size() == 4)
@@ -29,7 +29,7 @@ struct DoublyLinkedListTests {
         
         sut.clear()
         
-        #expect(sut.size() == 0)
+        #expect(sut.toArray() == [])
     }
     
     @Test
@@ -52,8 +52,7 @@ struct DoublyLinkedListTests {
         
         sut.append(0)
         
-        #expect(sut.size() == 1)
-        #expect(sut.get(0) == 0)
+        #expect(sut.toArray() == [0])
     }
     
     @Test
@@ -62,8 +61,7 @@ struct DoublyLinkedListTests {
         
         sut.append(4)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(4) == 4)
+        #expect(sut.toArray() == [0, 1, 2, 3, 4])
         #expect(sut.nodeAt(4)?.previous?.value == 3)
     }
     
