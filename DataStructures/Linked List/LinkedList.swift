@@ -17,4 +17,5 @@ protocol LinkedList<T> {
     func clear()
     func get(_ index: Int) -> T?
     func size() -> Int
+    func toArray() -> [T?]
 }

@@ -138,6 +138,13 @@ struct SinglyLinkedListTests {
         #expect(sut.size() == 3)
     }
     
+    @Test
+    func toArray_shouldListAllValues() {
+        let sut = makeListWithValues()
+        
+        #expect(sut.toArray() == [0, 1, 2, 3])
+    }
+    
     // MARK: Helper functions
     
     private func makeListWithValues() -> SinglyLinkedList<Int> {

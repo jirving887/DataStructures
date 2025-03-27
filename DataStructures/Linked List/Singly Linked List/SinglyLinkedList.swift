@@ -76,6 +76,16 @@ public class SinglyLinkedList<T>: LinkedList {
         return 0
     }
     
+    func toArray() -> [T?] {
+        guard let head else {
+            return []
+        }
+        if let next = head.next {
+            return [head.value] + toArray(next)
+        }
+        return [head.value]
+    }
+    
     private func size(_ node: SinglyLinkedNode<T>) -> Int {
         if let next = node.next {
             return 1 + size(next)
@@ -136,5 +146,12 @@ public class SinglyLinkedList<T>: LinkedList {
         let removed = nextNode.value
         node.next = nil
         return removed
+    }
+    
+    private func toArray(_ node: SinglyLinkedNode<T>) -> [T?] {
+        if let next = node.next {
+            return [node.value] + toArray(next)
+        }
+        return [node.value]
     }
 }
