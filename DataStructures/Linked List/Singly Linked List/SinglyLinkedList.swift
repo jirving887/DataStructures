@@ -20,8 +20,10 @@ public class SinglyLinkedList<T>: LinkedList {
     public func insert(_ element: T?, at index: Int) {
         if let head {
             insert(element, at: index, to: head)
-        } else {
+        } else if index < 1 {
             head = SinglyLinkedNode(value: element)
+        } else {
+            head = SinglyLinkedNode(value: nil)
             insert(element, at: index)
         }
     }
@@ -74,6 +76,16 @@ public class SinglyLinkedList<T>: LinkedList {
             return 1 + size(head)
         }
         return 0
+    }
+    
+    func toArray() -> [T?] {
+        guard let head else {
+            return []
+        }
+        if let next = head.next {
+            return [head.value] + toArray(next)
+        }
+        return [head.value]
     }
     
     private func size(_ node: SinglyLinkedNode<T>) -> Int {
@@ -136,5 +148,12 @@ public class SinglyLinkedList<T>: LinkedList {
         let removed = nextNode.value
         node.next = nil
         return removed
+    }
+    
+    private func toArray(_ node: SinglyLinkedNode<T>) -> [T?] {
+        if let next = node.next {
+            return [node.value] + toArray(next)
+        }
+        return [node.value]
     }
 }

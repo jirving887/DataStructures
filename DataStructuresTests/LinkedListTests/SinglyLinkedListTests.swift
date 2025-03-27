@@ -37,7 +37,7 @@ struct SinglyLinkedListTests {
         
         sut.clear()
         
-        #expect(sut.size() == 0)
+        #expect(sut.toArray() == [])
     }
     
     @Test
@@ -60,8 +60,7 @@ struct SinglyLinkedListTests {
         
         sut.append(0)
         
-        #expect(sut.size() == 1)
-        #expect(sut.get(0) == 0)
+        #expect(sut.toArray() == [0])
     }
     
     @Test
@@ -70,8 +69,7 @@ struct SinglyLinkedListTests {
         
         sut.append(4)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(4) == 4)
+        #expect(sut.toArray() == [0, 1, 2, 3, 4])
     }
     
     @Test
@@ -80,8 +78,7 @@ struct SinglyLinkedListTests {
         
         sut.insert(4, at: 4)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(4) == 4)
+        #expect(sut.toArray() == [nil, nil, nil, nil, 4])
     }
     
     @Test
@@ -90,8 +87,7 @@ struct SinglyLinkedListTests {
         
         sut.insert(-1, at: -1)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(0) == -1)
+        #expect(sut.toArray() == [-1, 0, 1, 2, 3])
     }
     
     @Test
@@ -100,8 +96,7 @@ struct SinglyLinkedListTests {
         
         sut.insert(5, at: 2)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(2) == 5)
+        #expect(sut.toArray() == [0, 1, 5, 2, 3])
     }
     
     @Test
@@ -118,7 +113,7 @@ struct SinglyLinkedListTests {
         let removed = sut.remove(2)
         
         #expect(removed == 2)
-        #expect(sut.size() == 3)
+        #expect(sut.toArray() == [0, 1, 3])
     }
     
     @Test
@@ -135,7 +130,14 @@ struct SinglyLinkedListTests {
         let removed = sut.removeLast()
         
         #expect(removed == 3)
-        #expect(sut.size() == 3)
+        #expect(sut.toArray() == [0, 1, 2])
+    }
+    
+    @Test
+    func toArray_shouldListAllValues() {
+        let sut = makeListWithValues()
+        
+        #expect(sut.toArray() == [0, 1, 2, 3])
     }
     
     // MARK: Helper functions
