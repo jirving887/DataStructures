@@ -80,6 +80,13 @@ struct DoublyLinkedListTests {
         
         #expect(sut.nodeAt(2)?.value == 2)
     }
+    
+    @Test
+    func toArray_shouldListAllValues() {
+        let sut = makeListWithValues()
+        
+        #expect(sut.toArray() == [0, 1, 2, 3])
+    }
 
     // MARK: Helper functions
     

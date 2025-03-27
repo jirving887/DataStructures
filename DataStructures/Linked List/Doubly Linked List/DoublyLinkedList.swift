@@ -55,6 +55,16 @@ public class DoublyLinkedList<T>: LinkedList {
         return 0
     }
     
+    func toArray() -> [T?] {
+        guard let head else {
+            return []
+        }
+        if let next = head.next {
+            return [head.value] + toArray(next)
+        }
+        return [head.value]
+    }
+    
     func nodeAt(_ index: Int) -> DoublyLinkedNode<T>? {
         if let head {
             return nodeAt(index: index, head)
@@ -96,5 +106,12 @@ public class DoublyLinkedList<T>: LinkedList {
             nextNode.previous = node
             node.next = nextNode
         }
+    }
+    
+    private func toArray(_ node: DoublyLinkedNode<T>) -> [T?] {
+        if let next = node.next {
+            return [node.value] + toArray(next)
+        }
+        return [node.value]
     }
 }
