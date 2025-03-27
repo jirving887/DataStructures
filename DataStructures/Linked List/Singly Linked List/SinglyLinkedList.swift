@@ -20,8 +20,10 @@ public class SinglyLinkedList<T>: LinkedList {
     public func insert(_ element: T?, at index: Int) {
         if let head {
             insert(element, at: index, to: head)
-        } else {
+        } else if index < 1 {
             head = SinglyLinkedNode(value: element)
+        } else {
+            head = SinglyLinkedNode(value: nil)
             insert(element, at: index)
         }
     }

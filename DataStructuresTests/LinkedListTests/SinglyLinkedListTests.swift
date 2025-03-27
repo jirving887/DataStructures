@@ -80,8 +80,7 @@ struct SinglyLinkedListTests {
         
         sut.insert(4, at: 4)
         
-        #expect(sut.size() == 5)
-        #expect(sut.get(4) == 4)
+        #expect(sut.toArray() == [nil, nil, nil, nil, 4])
     }
     
     @Test
