@@ -82,6 +82,15 @@ struct SinglyLinkedListTests {
     }
     
     @Test
+    func insert_withEmptyList_shouldAddToBeginningOfList() {
+        let sut = SinglyLinkedList<Int>()
+        
+        sut.insert(0, at: 0)
+        
+        #expect(sut.toArray() == [0])
+    }
+    
+    @Test
     func insert_withIndexLessThanOne_shouldAddToBeginningOfList() {
         let sut = makeListWithValues()
         
