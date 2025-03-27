@@ -1,7 +1,8 @@
 # Data Structures
-Common data structures implemented in Swift.
+A test-driven implementation of common data structures.
 
 ## Contains:
 - Singly Linked List
-### Coming soon:
 - Doubly Linked List
+### Coming soon:
+- TBD
