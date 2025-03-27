@@ -49,7 +49,15 @@ public class DoublyLinkedList<T>: LinkedList {
     }
     
     public func removeLast() -> T? {
-        nil
+        guard let head else {
+            return nil
+        }
+        if head.next == nil {
+            let removed = head.value
+            self.head = nil
+            return removed
+        }
+        return remove(head)
     }
     
     public func clear() {
@@ -154,6 +162,16 @@ public class DoublyLinkedList<T>: LinkedList {
             return removed
         }
         return remove(at: index - 1, next)
+    }
+    
+    private func remove(_ node: DoublyLinkedNode<T>) -> T? {
+        guard let nextNode = node.next else { return nil }
+        if let next = nextNode.next {
+            return remove(next)
+        }
+        let removed = nextNode.value
+        node.next = nil
+        return removed
     }
     
     private func toArray(_ node: DoublyLinkedNode<T>) -> [T?] {

@@ -128,6 +128,23 @@ struct DoublyLinkedListTests {
     }
     
     @Test
+    func removeLast_withEmptyList_shouldReturnNil() {
+        let sut = DoublyLinkedList<Int>()
+        
+        #expect(sut.removeLast() == nil)
+    }
+    
+    @Test
+    func removeLast_withNonEmptyList_shouldRemoveLastValue() {
+        let sut = makeListWithValues()
+        
+        let removed = sut.removeLast()
+        
+        #expect(removed == 3)
+        #expect(sut.toArray() == [0, 1, 2])
+    }
+    
+    @Test
     func nodeAt_withEmptyList_shouldReturnNil() {
         let sut = DoublyLinkedList<Int>()
         
