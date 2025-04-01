@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "D81F3197-176A-4376-B6B2-F9EE38921CDB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "DataStructuresTests",
+        "name" : "DataStructuresTests"
+      }
+    }
+  ],
+  "version" : 1
+}
