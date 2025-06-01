@@ -18,4 +18,15 @@ struct ArrayQueueTests {
         
         #expect(sut.toArray() == [0])
     }
+    
+    @Test
+    func enqueue_withLimit_shouldAddToQueueAndRemoveOldest() {
+        let sut = ArrayQueue<Int>(2)
+        
+        sut.enqueue(0)
+        sut.enqueue(1)
+        sut.enqueue(2)
+        
+        #expect(sut.toArray() == [1, 2])
+    }
 }

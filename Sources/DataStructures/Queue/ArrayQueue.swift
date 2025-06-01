@@ -10,8 +10,16 @@ import Foundation
 class ArrayQueue<T>: Queue {
     
     private var value: [T] = []
+    private var limit: Int?
+    
+    init(_ limit: Int? = nil) {
+        self.limit = limit
+    }
     
     func enqueue(_ element: T) {
+        if let limit, value.count == limit {
+            value.removeFirst(1)
+        }
         value.append(element)
     }
     
