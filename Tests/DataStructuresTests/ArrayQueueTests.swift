@@ -29,4 +29,12 @@ struct ArrayQueueTests {
         
         #expect(sut.toArray() == [1, 2])
     }
+    
+    @Test
+    func dequeue_withEmptyQueue_shouldReturnNil() {
+        let sut = ArrayQueue<Int>()
+        
+        #expect(sut.toArray() == [])
+        #expect(sut.dequeue() == nil)
+    }
 }
