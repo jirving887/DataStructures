@@ -1,0 +1,16 @@
+//
+//  Queue.swift
+//  DataStructures
+//
+//  Created by Jonathan Irving on 6/1/25.
+//
+
+import Foundation
+
+protocol Queue<T> {
+    associatedtype T
+    
+    func enqueue(_ element: T)
+    func dequeue() -> T?
+    func toArray() -> [T]
+}
