@@ -28,7 +28,7 @@ class ArrayQueue<T>: Queue {
     }
     
     func peek() -> T? {
-        nil
+        value.first
     }
     
     func toArray() -> [T] {

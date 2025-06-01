@@ -56,4 +56,15 @@ struct ArrayQueueTests {
         
         #expect(sut.peek() == nil)
     }
+    
+    @Test
+    func peek_withNonEmptyQueue_shouldReturnOldestWithoutRemoving() {
+        let sut = ArrayQueue<Int>()
+        
+        sut.enqueue(0)
+        sut.enqueue(1)
+        
+        #expect(sut.peek() == 0)
+        #expect(sut.toArray() == [0, 1])
+    }
 }
