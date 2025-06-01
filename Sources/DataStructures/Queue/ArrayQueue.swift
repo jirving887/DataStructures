@@ -8,13 +8,18 @@
 import Foundation
 
 class ArrayQueue<T>: Queue {
-    func enqueue(_ element: T) {}
+    
+    private var value: [T] = []
+    
+    func enqueue(_ element: T) {
+        value.append(element)
+    }
     
     func dequeue() -> T? {
         nil
     }
     
     func toArray() -> [T] {
-        []
+        value
     }
 }

@@ -10,4 +10,12 @@ import Testing
 
 struct ArrayQueueTests {
 
+    @Test
+    func enqueue_withNoLimit_shouldAddToQueue() {
+        let sut = ArrayQueue<Int>()
+        
+        sut.enqueue(0)
+        
+        #expect(sut.toArray() == [0])
+    }
 }
