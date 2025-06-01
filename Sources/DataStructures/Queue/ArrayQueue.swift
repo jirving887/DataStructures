@@ -27,6 +27,10 @@ class ArrayQueue<T>: Queue {
         value.isEmpty ? nil : value.remove(at: 0)
     }
     
+    func peek() -> T? {
+        nil
+    }
+    
     func toArray() -> [T] {
         value
     }

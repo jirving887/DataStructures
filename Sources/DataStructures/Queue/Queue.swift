@@ -12,5 +12,6 @@ protocol Queue<T> {
     
     func enqueue(_ element: T)
     func dequeue() -> T?
+    func peek() -> T?
     func toArray() -> [T]
 }

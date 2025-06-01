@@ -49,4 +49,11 @@ struct ArrayQueueTests {
         #expect(sut.dequeue() == 0)
         #expect(sut.toArray() == [1])
     }
+    
+    @Test
+    func peek_withEmptyQueue_shouldReturnNil() {
+        let sut = ArrayQueue<Int>()
+        
+        #expect(sut.peek() == nil)
+    }
 }
