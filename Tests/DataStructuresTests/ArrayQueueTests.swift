@@ -37,4 +37,16 @@ struct ArrayQueueTests {
         #expect(sut.toArray() == [])
         #expect(sut.dequeue() == nil)
     }
+    
+    @Test
+    func dequeue_withNonEmptyQueue_shouldReturnAndRemoveOldest() {
+        let sut = ArrayQueue<Int>()
+        
+        sut.enqueue(0)
+        sut.enqueue(1)
+        
+        #expect(sut.toArray() == [0, 1])
+        #expect(sut.dequeue() == 0)
+        #expect(sut.toArray() == [1])
+    }
 }

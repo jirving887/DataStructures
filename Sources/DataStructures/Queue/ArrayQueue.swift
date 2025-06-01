@@ -24,7 +24,7 @@ class ArrayQueue<T>: Queue {
     }
     
     func dequeue() -> T? {
-        nil
+        value.isEmpty ? nil : value.remove(at: 0)
     }
     
     func toArray() -> [T] {
