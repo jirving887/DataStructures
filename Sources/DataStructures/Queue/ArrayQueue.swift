@@ -7,31 +7,31 @@
 
 import Foundation
 
-class ArrayQueue<T>: Queue {
+public class ArrayQueue<T>: Queue {
     
     private var value: [T] = []
     private var limit: Int?
     
-    init(_ limit: Int? = nil) {
+    public init(_ limit: Int? = nil) {
         self.limit = limit
     }
     
-    func enqueue(_ element: T) {
+    public func enqueue(_ element: T) {
         if let limit, value.count == limit {
-            value.removeFirst(1)
+            value.removeFirst()
         }
         value.append(element)
     }
     
-    func dequeue() -> T? {
+    public func dequeue() -> T? {
         value.isEmpty ? nil : value.remove(at: 0)
     }
     
-    func peek() -> T? {
+    public func peek() -> T? {
         value.first
     }
     
-    func toArray() -> [T] {
+    public func toArray() -> [T] {
         value
     }
 }

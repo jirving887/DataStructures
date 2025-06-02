@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Queue<T> {
+public protocol Queue<T> {
     associatedtype T
     
     func enqueue(_ element: T)
